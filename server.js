@@ -14,12 +14,9 @@ const PORT = process.env.PORT || 3001;
   try {
     await connectDb();
     console.log(`🔌 MongoDB Connected`);
-
     const app = express();
-
     // trust proxy required for using secure cookies on Heroku
     app.set("trust proxy", 1);
-
     app.use(
       express.urlencoded({ extended: true }),
       express.json(),
