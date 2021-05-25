@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../../util/auth";
 import useLoginRedirect from "../../util/useLoginRedirect";
+import { Form, Button, Container } from "react-bootstrap";
 
 function SignupPage() {
   const auth = useAuth();
@@ -33,45 +34,47 @@ function SignupPage() {
     : auth.error || "Please complete the form and click submit.";
 
   return (
-    <>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username</label>
-        <br />
-        <input
-          id="username"
-          type="text"
-          disabled={auth.pending}
-          value={username}
-          onChange={(e) => setUsername(e.target.value.trim())}
-        />
-        <br />
-        <label htmlFor="email">Email</label>
-        <br />
-        <input
-          id="email"
-          type="email"
-          disabled={auth.pending}
-          value={email}
-          onChange={(e) => setEmail(e.target.value.trim())}
-        />
-        <br />
-        <label htmlFor="password">Password</label>
-        <br />
-        <input
-          id="password"
-          type="password"
-          disabled={auth.pending}
-          value={password}
-          onChange={(e) => setPassword(e.target.value.trim())}
-        />
-        <br />
-        <button type="submit" disabled={auth.pending}>
-          {auth.pending ? "⌛" : "Submit"}
-        </button>
-      </form>
-      <p>{message}</p>
-    </>
+    <Container>
+      <div className="signup">
+        <h1>Sign Up</h1>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group size="lg" controlId="signup-username">
+            <Form.Label>Username</Form.Label>
+            <Form.Control
+              id="signup-username"
+              type="text"
+              disabled={auth.pending}
+              value={username}
+              onChange={(e) => setUsername(e.target.value.trim())}
+            />
+          </Form.Group>
+          <Form.Group size="lg" controlId="signup-email">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              id="signup-email"
+              type="email"
+              disabled={auth.pending}
+              value={email}
+              onChange={(e) => setEmail(e.target.value.trim())}
+            />
+          </Form.Group>
+          <Form.Group size="lg" controlId="signup-password">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              id="signup-password"
+              type="password"
+              disabled={auth.pending}
+              value={password}
+              onChange={(e) => setPassword(e.target.value.trim())}
+            />
+          </Form.Group>
+          <Button block size="lg" type="submit" disabled={auth.pending}>
+            {auth.pending ? "⌛" : "Submit"}
+          </Button>
+          <p>{message}</p>
+        </Form>
+      </div>
+    </Container>
   );
 }
 
