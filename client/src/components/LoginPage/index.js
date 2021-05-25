@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../../util/auth";
 import useLoginRedirect from "../../util/useLoginRedirect";
+import { Form, Button, Container } from "react-bootstrap";
 
 function LoginPage() {
   const auth = useAuth();
@@ -26,36 +27,39 @@ function LoginPage() {
     : auth.error || "Please complete the form and click submit.";
 
   return (
-    <>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <br />
-        <input
-          id="email"
-          type="email"
-          disabled={auth.pending}
-          value={email}
-          onChange={(e) => setEmail(e.target.value.trim())}
-        />
-        <br />
-        <label htmlFor="password">Password</label>
-        <br />
-        <input
-          id="password"
-          type="password"
-          disabled={auth.pending}
-          value={password}
-          onChange={(e) => setPassword(e.target.value.trim())}
-        />
-        <br />
-        <button type="submit" disabled={auth.pending}>
-          {auth.pending ? "⌛" : "Submit"}
-        </button>
-      </form>
-      <p>{message}</p>
-    </>
+    <Container>
+      <div className="Login">
+        <h1>Log-In</h1>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group size="lg" controlId="email">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              id="email"
+              type="email"
+              disabled={auth.pending}
+              value={email}
+              onChange={(e) => setEmail(e.target.value.trim())}
+            />
+          </Form.Group>
+          <Form.Group size="lg" controlId="password">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              id="password"
+              type="password"
+              disabled={auth.pending}
+              value={password}
+              onChange={(e) => setPassword(e.target.value.trim())}
+            />
+          </Form.Group>
+          <Button block size="lg" type="submit" disabled={auth.pending}>
+            {auth.pending ? "⌛" : "Submit"}
+          </Button>
+          <p>{message}</p>
+        </Form>
+      </div>
+    </Container>
   );
 }
 
 export default LoginPage;
+
