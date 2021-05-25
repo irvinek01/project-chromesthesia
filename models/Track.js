@@ -5,6 +5,7 @@ const trackSchema = new Schema({
   trackId: { type: String, required: true },
   artist: { type: String, required: true },
   title: { type: String, required: true },
+  album: { type: String },
   cover: { type: String },
   youtubeVidId: { type: String, required: true },
 });
