@@ -34,7 +34,6 @@ function LoginPage() {
           <Form.Group size="lg" controlId="email">
             <Form.Label>Email</Form.Label>
             <Form.Control
-              id="email"
               type="email"
               disabled={auth.pending}
               value={email}
@@ -44,7 +43,6 @@ function LoginPage() {
           <Form.Group size="lg" controlId="password">
             <Form.Label>Password</Form.Label>
             <Form.Control
-              id="password"
               type="password"
               disabled={auth.pending}
               value={password}

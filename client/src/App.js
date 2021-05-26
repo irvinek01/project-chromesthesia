@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import PrivatePage from "./components/PrivatePage";
 import SignupPage from "./components/SignupPage";
 import PrivateRoute from "./components/PrivateRoute";
+import UserPage from "./components/UserPage";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <PrivateRoute path="/private">
             <PrivatePage />
+          </PrivateRoute>
+          <PrivateRoute path="/myprofile">
+            <UserPage />
           </PrivateRoute>
           <Route path="/signup">
             <SignupPage />
