@@ -30,6 +30,15 @@ const trackSeed = [
       "https://img.discogs.com/tYr8IEasFJ9l9DHjtT7Ymf-6FG4=/fit-in/600x576/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-4043383-1543067400-5668.jpeg.jpg",
     youtubeVidId: "h_D3VFfhvs4",
   },
+  {
+    trackId: "4",
+    artist: "Mariah Carey",
+    title: "We Belong Together",
+    album: "The Emancipation of Mimi",
+    cover:
+      "https://img.discogs.com/LOzLs_vrRSBqo2Od7O9fO00m4UM=/fit-in/496x500/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-2521244-1288551859.jpeg.jpg",
+    youtubeVidId: "0habxsuXW4g",
+  },
 ];
 
 db.Track.deleteMany({})
