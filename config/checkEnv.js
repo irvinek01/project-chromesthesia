@@ -1,3 +1,4 @@
+require("dotenv").config();
 // validate required env variables are set. Throw helpful errors regarding missing/invalid env vars.
 
 function checkEnv() {
