@@ -20,6 +20,7 @@ function UserNavs({ auth }) {
   return (
     <>
       <Nav to="/private">Private</Nav>
+      <Nav to="/myprofile">Profile</Nav>
       <button onClick={() => auth.logout()}>Logout</button>
     </>
   );

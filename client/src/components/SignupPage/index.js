@@ -41,7 +41,6 @@ function SignupPage() {
           <Form.Group size="lg" controlId="signup-username">
             <Form.Label>Username</Form.Label>
             <Form.Control
-              id="signup-username"
               type="text"
               disabled={auth.pending}
               value={username}
@@ -51,7 +50,6 @@ function SignupPage() {
           <Form.Group size="lg" controlId="signup-email">
             <Form.Label>Email</Form.Label>
             <Form.Control
-              id="signup-email"
               type="email"
               disabled={auth.pending}
               value={email}
@@ -61,7 +59,6 @@ function SignupPage() {
           <Form.Group size="lg" controlId="signup-password">
             <Form.Label>Password</Form.Label>
             <Form.Control
-              id="signup-password"
               type="password"
               disabled={auth.pending}
               value={password}
