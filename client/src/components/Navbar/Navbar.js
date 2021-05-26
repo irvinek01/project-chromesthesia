@@ -21,7 +21,15 @@ function UserNavs({ auth }) {
     <>
       <Nav to="/private">Private</Nav>
       <Nav to="/myprofile">Profile</Nav>
-      <button onClick={() => auth.logout()}>Logout</button>
+      <button
+        variant="contained"
+        style={{ float: "right" }}
+        color="primary"
+        className="float-right"
+        onClick={() => auth.logout()}
+      >
+        Logout
+      </button>
     </>
   );
 }
