@@ -2,8 +2,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { AuthProvider } from "./util/auth";
 import HomePage from "./components/HomePage";
 import LoginPage from "./components/LoginPage";
-import Navbar from "./components/Navbar";
-import PrivatePage from "./components/PrivatePage";
+import Navigation from "./components/Navigation";
+import IframesPage from "./components/IframesPage";
 import SignupPage from "./components/SignupPage";
 import PrivateRoute from "./components/PrivateRoute";
 import UserPage from "./components/UserPage";
@@ -12,7 +12,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <Navbar />
+        <Navigation />
         <Switch>
           <Route exact path="/">
             <HomePage />
@@ -20,9 +20,10 @@ function App() {
           <Route path="/login">
             <LoginPage />
           </Route>
-          <PrivateRoute path="/private">
-            <PrivatePage />
+          <PrivateRoute path="/iframespage">
+            <IframesPage />
           </PrivateRoute>
+           
           <PrivateRoute path="/myprofile">
             <UserPage />
           </PrivateRoute>

@@ -1,17 +1,14 @@
 import { useAuth } from "../../util/auth";
 import Nav from "./Nav";
 
-function Navbar() {
+import { Navbar } from "react-bootstrap";
+function Navigation() {
   const auth = useAuth();
   return (
-    <nav>
-      <ul>
-        <Nav exact to="/">
-          Home
-        </Nav>
-        {auth.isLoggedIn() ? <UserNavs auth={auth} /> : <GuestNavs />}
-      </ul>
-    </nav>
+    <Navbar bg="light" expand="lg">
+      <Navbar.Brand href="/">Chromesthesia </Navbar.Brand>
+      {auth.isLoggedIn() ? <UserNavs auth={auth} /> : <GuestNavs />}
+    </Navbar>
   );
 }
 
@@ -19,7 +16,6 @@ function Navbar() {
 function UserNavs({ auth }) {
   return (
     <>
-      <Nav to="/private">Private</Nav>
       <Nav to="/myprofile">Profile</Nav>
       <button
         variant="contained"
@@ -44,4 +40,4 @@ function GuestNavs() {
   );
 }
 
-export default Navbar;
+export default Navigation;
