@@ -20,9 +20,9 @@ function App() {
           <Route path="/login">
             <LoginPage />
           </Route>
-          <PrivateRoute path="/iframespage">
+          <Route path="/iframespage">
             <IframesPage />
-          </PrivateRoute>
+          </Route>
            
           <PrivateRoute path="/myprofile">
             <UserPage />
