@@ -23,7 +23,6 @@ function App() {
           <Route path="/iframespage">
             <IframesPage />
           </Route>
-           
           <PrivateRoute path="/myprofile">
             <UserPage />
           </PrivateRoute>
