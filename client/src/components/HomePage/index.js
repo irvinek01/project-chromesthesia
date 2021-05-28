@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
-import IframesPage from "../IframesPage";
 import { useHistory } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import { useAuth } from "../../util/auth";
 import { Container } from "react-bootstrap";
 import "./index.css";
-import history from "../../util/history";
 import colorAPI from "../../util/colorAPI";
 import Buttons from "../Buttons";
 
@@ -13,6 +11,7 @@ function HomePage() {
   const auth = useAuth();
   const [state, setState] = useState({
     colors: [],
+    colorName: "",
   });
   function getAllButtonsData() {
     colorAPI
@@ -22,14 +21,13 @@ function HomePage() {
   }
 
   useEffect(() => {
-    getAllButtonsData()
-  }, [state])
+    getAllButtonsData();
+  }, [state]);
 
-  const handleClick = () => {
-    history.push({
-      pathname: "/iframespage",
-    });
+  const handleClick = (color) => {
+    console.log(color);
   };
+
   return (
     <>
       <header className="App-Header"></header>
