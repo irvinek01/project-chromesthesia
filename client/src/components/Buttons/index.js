@@ -9,9 +9,10 @@ function Buttons({ colorsData, onClick }) {
             style={{ backgroundColor: res.hexaDecValue }}
             key={res._id}
             color={res.color}
+            
           >
             <Card.Body>
-              <Card.Title className="text-dark" onClick={onClick}>
+              <Card.Title className="text-dark" onClick={() => onClick(res.color)}>
                 <span className="bg-white">{res.keyNote}</span>
               </Card.Title>
             </Card.Body>
