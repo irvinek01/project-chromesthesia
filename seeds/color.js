@@ -75,7 +75,7 @@ const colorSeed = [
   {
     color: "Yellow",
     keyNote: "D Major",
-    hexaDecValue: "ffff00",
+    hexaDecValue: "#ffff00",
     songList: [
       {
         artist: "Lady Gaga",
