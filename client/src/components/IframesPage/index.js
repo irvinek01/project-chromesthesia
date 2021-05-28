@@ -1,5 +1,5 @@
 // import { useAuth } from "../../util/auth";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {
   Container,
   Row,
@@ -8,22 +8,31 @@ import {
   Card,
   CardGroup,
 } from "react-bootstrap";
+
 // import YouTube from "react-youtube";
 
 // PrivatePage is an example include to demonstrate a route protected from
 // unauthenticated users. See the routing in App.js.
-function IframesPage() {
+
+function IframesPage({currentColor}) {
+  
+
   const [state, setState] = useState({
     YTVidId: "",
     list: [],
+    songUrl: '0habxsuXW4g'
   });
 
-  // function componentDidMount() {
-  //   this.setState({
-  //     YTVidId: this.props.location.state.YTVidId,
-  //     list: [this.props.location.state.list],
-  //   });
-  // }
+ const urlVideo = "https://www.youtube.com/embed/" + state.songUrl + "?autoplay=1&mute=1"; 
+ 
+ useEffect(() => {
+  // Update the document title using the browser API
+  if (currentColor === "Red"){
+    setState({songUrl : ""})
+  }
+  // document.title = `You clicked ${songUrl} times`;
+});
+ 
 
   return (
     <Container>
@@ -34,8 +43,8 @@ function IframesPage() {
             <CardGroup>
               <Card>
                 <div>
-                  <iframe
-                    src="https://www.youtube.com/embed/0habxsuXW4g?autoplay=1&mute=1"
+                  <iframe 
+                    src = {urlVideo}
                     height="390"
                     width="640"
                     frameBorder="0"
