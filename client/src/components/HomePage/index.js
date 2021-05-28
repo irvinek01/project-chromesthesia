@@ -1,3 +1,5 @@
+import React, {useState} from "react";
+import IframesPage from "../IframesPage"
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../util/auth";
 import {
@@ -10,10 +12,14 @@ import {
   Jumbotron,
 } from "react-bootstrap";
 import "./index.css";
+
 function HomePage() {
   const history = useHistory();
   const auth = useAuth();
-
+  const [color, setColor] = useState(" ");
+  const handleClickEvent =(input)=>{ 
+    console.log(input)
+    setColor(input); }
   return (
     <>
       <header className="App-Header">
@@ -23,38 +29,42 @@ function HomePage() {
             <CardDeck>
               <Card className="card-red">
                 <Card.Body>
-                  <Card.Title className="text-white">Red</Card.Title>
+                  <Card.Title className="text-white" onClick = {() => handleClickEvent("Red")}>Red</Card.Title>
                 </Card.Body>
               </Card>
               <Card className="card-orangePink">
                 <Card.Body>
-                  <Card.Title className="text-dark">Orange</Card.Title>
+                  <Card.Title className="text-dark" onClick = {() => handleClickEvent("Orange")}>Orange</Card.Title>
                 </Card.Body>
               </Card>
               <Card className="card-yellow">
                 <Card.Body>
-                  <Card.Title className="text-dark">Yellow</Card.Title>
+                  <Card.Title className="text-dark"onClick = {() => handleClickEvent("Yellow")}>Yellow</Card.Title>
                 </Card.Body>
               </Card>
               <Card className="card-green">
                 <Card.Body>
-                  <Card.Title className="text-white">Green</Card.Title>
+                  <Card.Title className="text-white"onClick = {() => handleClickEvent("Green")}>Green</Card.Title>
                 </Card.Body>
               </Card>
               <Card className="card-purpleViolet">
                 <Card.Body>
-                  <Card.Title className="text-white">Purple</Card.Title>
+                  <Card.Title className="text-white"onClick = {() => handleClickEvent("Purple")}>Purple</Card.Title>
                 </Card.Body>
               </Card>
               <Card className="card-blue">
                 <Card.Body>
-                  <Card.Title className="text-white">Blue</Card.Title>
+                  <Card.Title className="text-white"onClick = {() => handleClickEvent("Blue")}>Blue</Card.Title>
                 </Card.Body>
               </Card>
             </CardDeck>
           </Container>
+          
         </div>
       </header>
+      <body >
+        <IframesPage currentColor = {color}/>
+        </body>
     </>
   );
 }
