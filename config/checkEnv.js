@@ -9,7 +9,7 @@ function checkEnv() {
   }
 
   // check that the MONGODB_URI exists and starts with mongodb://
-  if (typeof MONGODB_URI !== "string" || !/^mongodb:\/\//.test(MONGODB_URI)) {
+  if (typeof MONGODB_URI !== "string" || !/^mongodb/.test(MONGODB_URI)) {
     throw new Error(
       `MONGODB_URI environment variable not set or invalid. MONGODB_URI: '${MONGODB_URI}'`
     );
