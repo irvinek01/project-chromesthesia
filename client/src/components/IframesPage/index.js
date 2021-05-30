@@ -1,4 +1,5 @@
 // import { useAuth } from "../../util/auth";
+
 import React, { useState,useEffect } from "react";
 import {
   Container,
@@ -25,12 +26,13 @@ function IframesPage({currentColor}) {
  const urlVideo = "https://www.youtube.com/embed/" + state.songUrl + "?autoplay=1&mute=1"; 
  
  useEffect(() => {
+   console.log()
   // Update the document title using the browser API
   if (currentColor === "Red"){
     setState({songUrl : ""})
   }
   // document.title = `You clicked ${songUrl} times`;
-});
+},[currentColor]);
  
 
   return (

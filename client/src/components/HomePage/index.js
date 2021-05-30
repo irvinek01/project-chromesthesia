@@ -17,7 +17,7 @@ function HomePage() {
     colorAPI
       .getAllColors()
       .then((res) => setState({ ...state, colors: res.data }));
-    // console.log(state.colors);
+    console.log(state.colors);
   }
 
   useEffect(() => {
