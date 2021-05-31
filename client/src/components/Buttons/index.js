@@ -1,6 +1,6 @@
 import { Card, CardDeck } from "react-bootstrap";
 
-function Buttons({ colorsData, onClick }) {
+function Buttons({ colorsData, handleClick }) {
   return (
     <CardDeck>
       {colorsData.map((res) => {
@@ -9,10 +9,12 @@ function Buttons({ colorsData, onClick }) {
             style={{ backgroundColor: res.hexaDecValue }}
             key={res._id}
             color={res.color}
-            
           >
             <Card.Body>
-              <Card.Title className="text-dark" onClick={() => onClick(res.color)}>
+              <Card.Title
+                className="text-dark"
+                onClick={() => handleClick(res.color)}
+              >
                 <span className="bg-white">{res.keyNote}</span>
               </Card.Title>
             </Card.Body>
