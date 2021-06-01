@@ -23,7 +23,7 @@ function HomePage() {
       setColor({ ...color, colorList: res.data });
     });
   }, []);
-  console.log(color.songList);
+  // console.log(color.songList);
 
   function handleClick(e) {
     e.preventDefault();
