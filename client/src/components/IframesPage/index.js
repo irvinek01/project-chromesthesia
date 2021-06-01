@@ -14,12 +14,33 @@ import {
 // unauthenticated users. See the routing in App.js.
 
 function IframesPage({ songsObj }) {
-  
-  const urlVideo =
-    "https://www.youtube.com/embed/" +
-    songsObj[0].youtubeVidId +
-    "?autoplay=1&mute=1";
+  let listSongByArtist = [];
+  let currentSongVideo,
+    currentSongArtist,
+    currentSongTitle,
+    currentSongAlbum,
+    currentSongAlbumCover;
+  let nextSongArtist, nextSongTitle;
+  var i;
+  for (i = 0; i < songsObj.length; i++) {
+    // All list song data
+    listSongByArtist.push(songsObj[i].title + " by " + songsObj[i].artist);
+    // Current Song Data
+    currentSongVideo =
+      "https://www.youtube.com/embed/" +
+      songsObj[i - i].youtubeVidId +
+      "?autoplay=1&mute=1";
+    // put out &mute=1 for music
+    currentSongArtist = songsObj[i - i].artist;
+    currentSongTitle = songsObj[i - i].title;
+    currentSongAlbum = songsObj[i - i].album;
+    currentSongAlbumCover = songsObj[i - i].cover;
 
+    // Next Song Data
+    nextSongArtist = songsObj[i - i + 1].artist;
+    nextSongTitle = songsObj[i - i + 1].title;
+  }
+  console.log(listSongByArtist);
   return (
     <Container>
       <br />
@@ -30,7 +51,7 @@ function IframesPage({ songsObj }) {
               <Card>
                 <div>
                   <iframe
-                    src={urlVideo}
+                    src={currentSongVideo}
                     height="390"
                     width="640"
                     frameBorder="0"
@@ -40,8 +61,20 @@ function IframesPage({ songsObj }) {
                   />
                 </div>
                 <Card.Body>
-                  <Card.Title>Song Title</Card.Title>
-                  <Card.Text>Artist Album</Card.Text>
+                  <Card.Title>
+                    {currentSongTitle} by {currentSongArtist}
+                  </Card.Title>
+                  <Card.Text>
+                    <b>Album:</b> {currentSongAlbum}
+                    <img
+                      alt="Album Cover"
+                      src={currentSongAlbumCover}
+                      height="175px"
+                      width="175px"
+                    />
+                    <br />
+                    Next Song is: {nextSongTitle} by {nextSongArtist}
+                  </Card.Text>
                 </Card.Body>
               </Card>
             </CardGroup>
@@ -50,12 +83,11 @@ function IframesPage({ songsObj }) {
         <Col xs={6} md={4}>
           <ListGroup>
             <ListGroup.Item>
-              *Section for the queued up songs to play*
+              <b>*Section for the queued up songs to play*</b>
             </ListGroup.Item>
-            <ListGroup.Item>*Find by the key or id?*</ListGroup.Item>
-            <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-            <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-            <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+            {listSongByArtist.map((res) => {
+              return <ListGroup.Item>{res}</ListGroup.Item>;
+            })}
           </ListGroup>
         </Col>
       </Row>

@@ -79,8 +79,8 @@ const colorSeed = [
     songList: [
       {
         artist: "Lady Gaga",
-        title: "The Fame Monster",
-        album: "Alejandro",
+        title: "Alejandro",
+        album: "The Fame Monster",
         cover: "https://img.discogs.com/oFTwqLNEMA2d4IVdsQSZo43oSxo=/fit-in/500x500/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-2158786-1267837892.jpeg.jpg",
         youtubeVidId: "niqrrmev4mA",
     },
