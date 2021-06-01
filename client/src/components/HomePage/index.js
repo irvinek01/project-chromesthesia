@@ -1,3 +1,4 @@
+
 import { useHistory } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../../util/auth";
@@ -13,6 +14,7 @@ function HomePage() {
   const [state, setState] = useState({
     colors: [],
     colorName: "",
+    filteredColor:[{}]
   });
   function getAllButtonsData() {
     colorAPI
@@ -28,9 +30,9 @@ function HomePage() {
     const colorData = state.colors.filter(
       (colorData) => colorData.color === color
     );
-    console.log(colorData);
+    console.log(colorData[0]);
     // console.log(colorData[0].color);
-    // setState({ colorName: colorData[0].color });
+    // setState({ filteredColor: colorData });
     // console.log(state.colorName);
   }
 
@@ -41,7 +43,7 @@ function HomePage() {
         <Container>
           <h1>Chromesthesia</h1>
           <Buttons colorsData={state.colors} handleClick={handleClick} />
-          <Iframe />
+          <Iframe currentColor={state.filteredColor}/>
         </Container>
       </div>
     </>

@@ -12,17 +12,20 @@ import {
 // PrivatePage is an example include to demonstrate a route protected from
 // unauthenticated users. See the routing in App.js.
 
-function IframesPage({ currentColor }) {
+function IframesPage({ currentColor}) {
   const [state, setState] = useState({
     colorName: "",
     songList: [],
+    songId: "YlUKcNNmywk"
+    
   });
-
+  
+  // "YlUKcNNmywk"
   const urlVideo =
-    "https://www.youtube.com/embed/" + "YlUKcNNmywk" + "?autoplay=1&mute=1";
+    "https://www.youtube.com/embed/" + state.songId + "?autoplay=1&mute=1";
 
   useEffect(() => {
-    console.log();
+    console.log("Iframe", currentColor);
     // Update the document title using the browser API
     if (currentColor === "Red") {
       setState({ songUrl: "" });
