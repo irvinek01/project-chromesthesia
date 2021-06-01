@@ -1,5 +1,6 @@
 // import { useAuth } from "../../util/auth";
 import React, { useState, useEffect } from "react";
+import colorAPI from "../../util/colorAPI";
 import {
   Container,
   Row,
@@ -12,26 +13,12 @@ import {
 // PrivatePage is an example include to demonstrate a route protected from
 // unauthenticated users. See the routing in App.js.
 
-function IframesPage({ currentColor}) {
-  const [state, setState] = useState({
-    colorName: "",
-    songList: [],
-    songId: "YlUKcNNmywk"
-    
-  });
+function IframesPage({ songsObj }) {
   
-  // "YlUKcNNmywk"
   const urlVideo =
-    "https://www.youtube.com/embed/" + state.songId + "?autoplay=1&mute=1";
-
-  useEffect(() => {
-    console.log("Iframe", currentColor);
-    // Update the document title using the browser API
-    if (currentColor === "Red") {
-      setState({ songUrl: "" });
-    }
-    // document.title = `You clicked ${songUrl} times`;
-  }, [currentColor]);
+    "https://www.youtube.com/embed/" +
+    songsObj[0].youtubeVidId +
+    "?autoplay=1&mute=1";
 
   return (
     <Container>
@@ -53,16 +40,9 @@ function IframesPage({ currentColor}) {
                   />
                 </div>
                 <Card.Body>
-                  <Card.Title>Card title</Card.Title>
-                  <Card.Text>
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
-                  </Card.Text>
+                  <Card.Title>Song Title</Card.Title>
+                  <Card.Text>Artist Album</Card.Text>
                 </Card.Body>
-                <Card.Footer>
-                  <small className="text-muted">Last updated 3 mins ago</small>
-                </Card.Footer>
               </Card>
             </CardGroup>
           </Container>

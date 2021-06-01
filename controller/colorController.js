@@ -2,9 +2,12 @@ const db = require("../models");
 
 module.exports = {
   findAll: function (req, res) {
-      db.Color.find({})
-    // db.Color.find({}, "color keyNote hexaDecValue")
-      .then((dbModel) => {console.log(dbModel); res.json(dbModel)})
+    db.Color.find({})
+      // db.Color.find({}, "color keyNote hexaDecValue")
+      .then((dbModel) => {
+        console.log(dbModel);
+        res.json(dbModel);
+      })
       .catch((err) => res.status(422).json(err));
   },
   findByColor: function (req, res) {

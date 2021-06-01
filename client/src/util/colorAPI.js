@@ -7,7 +7,7 @@ const colorAPI = {
   },
 
   getPlaylistByColor: function (color) {
-    return axios.post("/api/colors/" + color);
+    return axios.get("/api/colors/" + color);
   },
 
 };
