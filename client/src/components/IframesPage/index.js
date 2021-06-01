@@ -1,6 +1,5 @@
 // import { useAuth } from "../../util/auth";
 import React, { useState, useEffect } from "react";
-import colorAPI from "../../util/colorAPI";
 import {
   Container,
   Row,
@@ -14,7 +13,7 @@ import {
 // unauthenticated users. See the routing in App.js.
 
 function IframesPage({ songsObj }) {
-  let listSongByArtist = [];
+  let listSongsByArtist = [];
   let currentSongVideo,
     currentSongArtist,
     currentSongTitle,
@@ -24,12 +23,16 @@ function IframesPage({ songsObj }) {
   var i;
   for (i = 0; i < songsObj.length; i++) {
     // All list song data
-    listSongByArtist.push(songsObj[i].title + " by " + songsObj[i].artist);
+    listSongsByArtist.push({
+      songTitle: songsObj[i].title,
+      songArtist: songsObj[i].artist,
+      songId: songsObj[i].youtubeVidId,
+    });
     // Current Song Data
     currentSongVideo =
       "https://www.youtube.com/embed/" +
       songsObj[i - i].youtubeVidId +
-      "?autoplay=1&mute=1";
+      "?autoplay=1";
     // put out &mute=1 for music
     currentSongArtist = songsObj[i - i].artist;
     currentSongTitle = songsObj[i - i].title;
@@ -40,7 +43,7 @@ function IframesPage({ songsObj }) {
     nextSongArtist = songsObj[i - i + 1].artist;
     nextSongTitle = songsObj[i - i + 1].title;
   }
-  console.log(listSongByArtist);
+  console.log(listSongsByArtist);
   return (
     <Container>
       <br />
@@ -81,14 +84,15 @@ function IframesPage({ songsObj }) {
           </Container>
         </Col>
         <Col xs={6} md={4}>
-          <ListGroup>
-            <ListGroup.Item>
-              <b>*Section for the queued up songs to play*</b>
-            </ListGroup.Item>
-            {listSongByArtist.map((res) => {
-              return <ListGroup.Item>{res}</ListGroup.Item>;
-            })}
-          </ListGroup>
+          {listSongsByArtist.map((res) => {
+            return (
+              <ListGroup key={res.songId}>
+                <ListGroup.Item>
+                  {res.songTitle} by {res.songArtist}
+                </ListGroup.Item>
+              </ListGroup>
+            );
+          })}
         </Col>
       </Row>
     </Container>
