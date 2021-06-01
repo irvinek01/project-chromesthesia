@@ -10,32 +10,45 @@ import Iframe from "../IframesPage";
 function HomePage() {
   const history = useHistory();
   const auth = useAuth();
-  const [state, setState] = useState({
-    colors: [],
-    colorName: "",
-    filteredColor: [{}],
+
+  const [color, setColor] = useState({
+    colorList: [],
+    filteredColor: "",
+    songList: [],
   });
   const [showResults, setShowResults] = React.useState(false);
 
-  function getAllButtonsData() {
-    colorAPI
-      .getAllColors()
-      .then((res) => setState({ ...state, colors: res.data }));
-    // console.log(state.colors);
-  }
+  useEffect(() => {
+    colorAPI.getAllColors().then((res) => {
+      setColor({ ...color, colorList: res.data });
+    });
+  }, []);
+  console.log(color.songList);
 
-  useEffect(getAllButtonsData, [state]);
-
-  async function handleClick(color) {
-    // console.log(color);
+  function handleClick(e) {
+    e.preventDefault();
+    const clickedColor = e.target.value;
     setShowResults(true);
-    const colorData = state.colors.filter(
-      (colorData) => colorData.color === color
+    // console.log(clickedColor);
+    const colorData = color.colorList.filter(
+      (colorData) => colorData.color === clickedColor
     );
-    console.log(colorData[0]);
-    // console.log(colorData[0].color);
-    // setState({ filteredColor: colorData });
-    // console.log(state.colorName);
+    // console.log(colorData[0].songList);
+    const songs = colorData[0].songList.map((song) => {
+      const songData = {
+        artist: song.artist,
+        title: song.title,
+        album: song.album,
+        cover: song.cover || "https://via.placeholder.com/150",
+        youtubeVidId: song.youtubeVidId,
+      };
+      return songData;
+    });
+    setColor({
+      ...color,
+      filteredColor: colorData[0].color,
+      songList: songs,
+    });
   }
 
   return (
@@ -44,8 +57,8 @@ function HomePage() {
       <div>
         <Container>
           <h1>Chromesthesia</h1>
-          <Buttons colorsData={state.colors} handleClick={handleClick} />
-          {showResults ? <Iframe currentColor={state.filteredColor} /> : null}
+          <Buttons colorsData={color.colorList} handleClick={handleClick} />
+          {showResults ? <Iframe songsObj={color.songList} /> : null}
         </Container>
       </div>
     </>
