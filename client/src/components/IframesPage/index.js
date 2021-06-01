@@ -29,7 +29,7 @@ function IframesPage({ songsObj }) {
     currentSongVideo =
       "https://www.youtube.com/embed/" +
       songsObj[i - i].youtubeVidId +
-      "?autoplay=1&mute=1";
+      "?autoplay=1";
     // put out &mute=1 for music
     currentSongArtist = songsObj[i - i].artist;
     currentSongTitle = songsObj[i - i].title;
