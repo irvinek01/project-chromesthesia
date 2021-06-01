@@ -10,9 +10,6 @@ import {
   CardGroup,
 } from "react-bootstrap";
 
-// PrivatePage is an example include to demonstrate a route protected from
-// unauthenticated users. See the routing in App.js.
-
 function IframesPage({ songsObj }) {
   let listSongByArtist = [];
   let currentSongVideo,
@@ -65,15 +62,17 @@ function IframesPage({ songsObj }) {
                     {currentSongTitle} by {currentSongArtist}
                   </Card.Title>
                   <Card.Text>
-                    <b>Album:</b> {currentSongAlbum}
                     <img
-                      alt="Album Cover"
                       src={currentSongAlbumCover}
+                      alt="Album Cover"
                       height="175px"
                       width="175px"
                     />
+                  </Card.Text>
+                  <Card.Text>
+                    <b>Album:</b> {currentSongAlbum}
                     <br />
-                    Next Song is: {nextSongTitle} by {nextSongArtist}
+                    Next Song: {nextSongTitle} by {nextSongArtist}
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -83,7 +82,7 @@ function IframesPage({ songsObj }) {
         <Col xs={6} md={4}>
           <ListGroup>
             <ListGroup.Item>
-              <b>*Section for the queued up songs to play*</b>
+              <b>Q'd Songs </b>
             </ListGroup.Item>
             {listSongByArtist.map((res) => {
               return <ListGroup.Item>{res}</ListGroup.Item>;

@@ -5,7 +5,7 @@ import { Navbar } from "react-bootstrap";
 function Navigation() {
   const auth = useAuth();
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="x-lg">
       <Navbar.Brand href="/">Chromesthesia </Navbar.Brand>
       {auth.isLoggedIn() ? <UserNavs auth={auth} /> : <GuestNavs />}
     </Navbar>
@@ -21,7 +21,7 @@ function UserNavs({ auth }) {
         variant="contained"
         style={{ float: "right" }}
         color="primary"
-        className="float-right"
+        className="float-right md-auto"
         onClick={() => auth.logout()}
       >
         Logout
@@ -33,10 +33,17 @@ function UserNavs({ auth }) {
 // Renders navigation controls intended for user's that aren't logged in.
 function GuestNavs() {
   return (
-    <>
-      <Nav to="/login">Login</Nav>
+    <div>
+      <Nav
+        className="justify-content-end"
+        style={{ width: "100%" }}
+        to="/login"
+      >
+        Login
+      </Nav>
+      <br></br>
       <Nav to="/signup">Sign Up</Nav>
-    </>
+    </div>
   );
 }
 
