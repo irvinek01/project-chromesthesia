@@ -15,6 +15,7 @@ function HomePage() {
     colorList: [],
     filteredColor: "",
     songList: [],
+    default: "",
   });
   const [showResults, setShowResults] = React.useState(false);
 
@@ -48,6 +49,7 @@ function HomePage() {
       ...color,
       filteredColor: colorData[0].color,
       songList: songs,
+      default: 0,
     });
   }
 
@@ -58,7 +60,7 @@ function HomePage() {
         <Container>
           <h1>Chromesthesia</h1>
           <Buttons colorsData={color.colorList} handleClick={handleClick} />
-          {showResults ? <Iframe songsObj={color.songList} /> : null}
+          {showResults ? <Iframe songsObj={color.songList} defaultVal={color.default} /> : null}
         </Container>
       </div>
     </>
