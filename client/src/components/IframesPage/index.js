@@ -101,6 +101,7 @@ function IframesPage({ songsObj, defaultVal }) {
                       alt="Album Cover"
                       height="175px"
                       width="175px"
+                      
                     />
                   </Card.Text>
                   <Card.Text>
