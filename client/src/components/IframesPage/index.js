@@ -71,6 +71,7 @@ function IframesPage({ songsObj }) {
                       src={currentSongAlbumCover}
                       height="175px"
                       width="175px"
+                      
                     />
                     <br />
                     Next Song is: {nextSongTitle} by {nextSongArtist}

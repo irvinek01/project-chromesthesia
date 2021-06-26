@@ -5,7 +5,7 @@ import { Navbar } from "react-bootstrap";
 function Navigation() {
   const auth = useAuth();
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Navbar.Brand href="/">Chromesthesia </Navbar.Brand>
       {auth.isLoggedIn() ? <UserNavs auth={auth} /> : <GuestNavs />}
     </Navbar>

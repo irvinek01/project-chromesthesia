@@ -20,11 +20,11 @@
   color: rgb(4, 49, 250);
 }
 h1 {
-  margin: auto;
+  margin: 10;
   width: 50%;
-  padding: 30px;
+  padding: 70px;
   color: rgba(9, 65, 248, 0.829);
-  font-family: "Courier New", Courier, monospace;
-  font-size: 50px;
-  font-weight: lighter;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 100px;
+  font-weight: darker;
 }
