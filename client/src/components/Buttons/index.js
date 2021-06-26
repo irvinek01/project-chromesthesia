@@ -5,20 +5,20 @@ function Buttons({ colorsData, handleClick }) {
     <CardDeck>
       {colorsData.map((res) => {
         return (
-          <Card key={res._id}>
-            <Card.Body>
-              <Card.Title className="text-light">
-                <button
-                  onClick={handleClick}
-                  style={{ backgroundColor: res.hexaDecValue }} 
-                  value={res.color}
-                  
-                >
-                  {res.keyNote}
-                </button>
-              </Card.Title>
-            </Card.Body>
-          </Card>
+
+
+          <Card.Title className="text-light mx-auto" key={res._id}>
+            <button
+              onClick={handleClick}
+              style={{ backgroundColor: res.hexaDecValue }}
+              value={res.color}
+
+            >
+              {res.keyNote}
+            </button>
+          </Card.Title>
+
+
         );
       })}
     </CardDeck>
