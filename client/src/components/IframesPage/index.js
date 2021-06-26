@@ -1,6 +1,5 @@
 // import { useAuth } from "../../util/auth";
 import React, { useState, useEffect } from "react";
-import colorAPI from "../../util/colorAPI";
 import {
   Container,
   Row,
@@ -9,12 +8,16 @@ import {
   Card,
   CardGroup,
 } from "react-bootstrap";
+import YouTube from "@u-wave/react-youtube";
 
-// PrivatePage is an example include to demonstrate a route protected from
-// unauthenticated users. See the routing in App.js.
+const hashVideoRx = /^#!\/video\/(\d)$/;
+const hash = typeof window.location !== "undefined" ? window.location.hash : ""; // eslint-disable-line no-undef
+const defaultVideo = hashVideoRx.test(hash)
+  ? parseInt(hash.replace(hashVideoRx, "$1"), 10)
+  : 0;
 
-function IframesPage({ songsObj }) {
-  let listSongByArtist = [];
+function IframesPage({ songsObj, defaultVal }) {
+  let listSongsByArtist = [];
   let currentSongVideo,
     currentSongArtist,
     currentSongTitle,
@@ -22,25 +25,44 @@ function IframesPage({ songsObj }) {
     currentSongAlbumCover;
   let nextSongArtist, nextSongTitle;
   var i;
+
   for (i = 0; i < songsObj.length; i++) {
     // All list song data
-    listSongByArtist.push(songsObj[i].title + " by " + songsObj[i].artist);
-    // Current Song Data
-    currentSongVideo =
-      "https://www.youtube.com/embed/" +
-      songsObj[i - i].youtubeVidId +
-      "?autoplay=1&mute=1";
-    // put out &mute=1 for music
-    currentSongArtist = songsObj[i - i].artist;
-    currentSongTitle = songsObj[i - i].title;
-    currentSongAlbum = songsObj[i - i].album;
-    currentSongAlbumCover = songsObj[i - i].cover;
+    listSongsByArtist.push({
+      songTitle: songsObj[i].title,
+      songArtist: songsObj[i].artist,
+      songAlbumTitle: songsObj[i].album,
+      songAlbumCover: songsObj[i].cover,
+      songVidId: songsObj[i].youtubeVidId,
+    });
+    // // Current Song Data
+    // currentSongVideo = songsObj[i - i].youtubeVidId;
+    // currentSongArtist = songsObj[i - i].artist;
+    // currentSongTitle = songsObj[i - i].title;
+    // currentSongAlbum = songsObj[i - i].album;
+    // currentSongAlbumCover = songsObj[i - i].cover;
 
-    // Next Song Data
-    nextSongArtist = songsObj[i - i + 1].artist;
-    nextSongTitle = songsObj[i - i + 1].title;
+    // // Next Song Data
+    // nextSongArtist = songsObj[i - i + 1].artist;
+    // nextSongTitle = songsObj[i - i + 1].title;
   }
-  console.log(listSongByArtist);
+  // console.log(listSongsByArtist);
+  const [videoIndex, setVideoIndex] = useState(defaultVideo);
+
+  const video = listSongsByArtist[videoIndex];
+
+  function selectVideo(index) {
+    setVideoIndex(index);
+  }
+
+  function handleOnEnd() {
+    if (videoIndex < listSongsByArtist.length) {
+      setVideoIndex(+1);
+      return;
+    }
+    setVideoIndex(0);
+  }
+
   return (
     <Container>
       <br />
@@ -50,7 +72,7 @@ function IframesPage({ songsObj }) {
             <CardGroup>
               <Card>
                 <div>
-                  <iframe
+                  {/* <iframe
                     src={currentSongVideo}
                     height="390"
                     width="640"
@@ -58,23 +80,33 @@ function IframesPage({ songsObj }) {
                     allow="autoplay; encrypted-media"
                     allowFullScreen
                     title="video"
+                  /> */}
+                  <YouTube
+                    video={video.songVidId}
+                    height="390"
+                    width="640"
+                    autoplay
+                    allowFullscreen
+                    // controls={false}
+                    onEnd={handleOnEnd}
                   />
                 </div>
                 <Card.Body>
                   <Card.Title>
-                    {currentSongTitle} by {currentSongArtist}
+                    {video.songTitle} by {video.songArtist}
                   </Card.Title>
                   <Card.Text>
-                    <b>Album:</b> {currentSongAlbum}
                     <img
+                      src={video.songAlbumCover}
                       alt="Album Cover"
-                      src={currentSongAlbumCover}
                       height="175px"
                       width="175px"
                       
                     />
+                  </Card.Text>
+                  <Card.Text>
+                    <b>Album:</b> {video.songAlbumTitle}
                     <br />
-                    Next Song is: {nextSongTitle} by {nextSongArtist}
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -84,11 +116,18 @@ function IframesPage({ songsObj }) {
         <Col xs={6} md={4}>
           <ListGroup>
             <ListGroup.Item>
-              <b>*Section for the queued up songs to play*</b>
+              <b>Q'd Songs </b>
             </ListGroup.Item>
-            {listSongByArtist.map((res) => {
-              return <ListGroup.Item>{res}</ListGroup.Item>;
-            })}
+            {listSongsByArtist.map((choice, index) => (
+              <ListGroup.Item key={choice.songVidId}>
+                <a
+                  href={`#!/video/${index}`}
+                  onClick={() => selectVideo(index)}
+                >
+                  {choice.songTitle} by {choice.songArtist}
+                </a>
+              </ListGroup.Item>
+            ))}
           </ListGroup>
         </Col>
       </Row>
