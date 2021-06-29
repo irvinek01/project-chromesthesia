@@ -28,3 +28,23 @@ h1 {
   font-size: 100px;
   font-weight: darker;
 }
+
+button {
+  font-weight: 2000;
+  font-size: 20px;
+  padding: 20px;
+  margin: 1000;
+  size: "lg";
+  border-radius: 5%
+}
+
+nav {
+  font-size: 15px;
+  height: 100px;
+  
+  
+  
+  
+  
+}
+
