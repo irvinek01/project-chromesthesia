@@ -20,11 +20,37 @@
   color: rgb(4, 49, 250);
 }
 h1 {
+  text-align: center;
   margin: 10;
   width: 50%;
-  padding: 70px;
+  padding: 20px;
   color: rgba(9, 65, 248, 0.829);
   font-family: "Gill Sans", sans-serif;
   font-size: 100px;
   font-weight: darker;
 }
+
+button {
+  border: none;
+  color: black;
+  padding: 63px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 0px;
+  border-radius: 100%;
+  font-family: "Gill Sans", sans-serif;
+  font-weight: bold
+}
+
+nav {
+  font-size: 15px;
+  height: 100px;
+  
+  
+  
+  
+  
+}
+
