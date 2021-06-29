@@ -5,10 +5,8 @@ function Buttons({ colorsData, handleClick }) {
     <CardDeck>
       {colorsData.map((res) => {
         return (
-          <Card.Title className="mx-auto"  key={res._id}>
+          <Card.Title className="text-light mx-auto" key={res._id}>
             <button
-              variant="contained"
-              className="float-right md-auto"
               onClick={handleClick}
               style={{ backgroundColor: res.hexaDecValue }}
               value={res.color}
