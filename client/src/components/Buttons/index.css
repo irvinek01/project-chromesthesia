@@ -1,0 +1,14 @@
+.btn-styling{
+    border: none;
+    color:black;
+    padding: 63px;
+    text-align: center;
+    text-decoration: underline;
+    display: inline-block;
+    font-size: 15px;
+    margin: 0px;
+    border-radius: 100%;
+    font-family: "Gill Sans", sans-serif;
+    font-weight: bold
+  }
+  
