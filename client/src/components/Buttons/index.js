@@ -1,5 +1,5 @@
 import { Card, CardDeck } from "react-bootstrap";
-
+import "./index.css";
 function Buttons({ colorsData, handleClick }) {
   return (
     <CardDeck>
@@ -8,7 +8,8 @@ function Buttons({ colorsData, handleClick }) {
           <Card.Title className="mx-auto"  key={res._id}>
             <button
               variant="contained"
-              className="float-right md-auto"
+              className="float-right md-auto btn-styling"
+        
               onClick={handleClick}
               style={{ backgroundColor: res.hexaDecValue }}
               value={res.color}

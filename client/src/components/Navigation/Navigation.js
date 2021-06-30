@@ -5,8 +5,9 @@ import { Navbar } from "react-bootstrap";
 function Navigation() {
   const auth = useAuth();
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="/">Chromesthesia </Navbar.Brand>
+    // expand="lg" bg="dark" variant="dark"
+    <Navbar className="nav-style" >
+      <Navbar.Brand className href="/">Chromesthesia </Navbar.Brand>
       {auth.isLoggedIn() ? <UserNavs auth={auth} /> : <GuestNavs />}
     </Navbar>
   );
@@ -21,7 +22,7 @@ function UserNavs({ auth }) {
         variant="contained"
         style={{ float: "right" }}
         color="primary"
-        className="float-right md-auto"
+        className="float-right md-auto nav-buttons"
         onClick={() => auth.logout()}
       >
         Logout

@@ -1,24 +1,4 @@
-.card-red {
-  background-color: rgb(216, 11, 11);
-}
-.card-orangePink {
-  background-color: orange;
-}
-.card-yellow {
-  background-color: yellow;
-}
-.card-green {
-  background-color: green;
-}
-.card-purpleViolet {
-  background-color: #800080;
-}
-.card-blue {
-  background-color: blue;
-}
-.cardTitle-lightgreen {
-  color: rgb(4, 49, 250);
-}
+
 h1 {
   text-align: center;
   margin: 10;
@@ -30,27 +10,45 @@ h1 {
   font-weight: darker;
 }
 
-button {
+
+
+.nav-style {
+  font-size: 20px;
+  height: 100px;
   border: none;
-  color: black;
+  background-color:lightpink;
   padding: 63px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  /* display: inline-block; */
   font-size: 15px;
   margin: 0px;
-  border-radius: 100%;
+  border-radius: 0%;
   font-family: "Gill Sans", sans-serif;
   font-weight: bold
+
+  
+  
+  
+  
 }
 
-nav {
+.nav-buttons{
+
+}
+
+.nav-buttons{
+  border: none;
+  color:blue;
+  padding: 6px;
+  text-align: justify;
+  text-decoration: none;
+  display: inline-block;
   font-size: 15px;
-  height: 100px;
-  
-  
-  
-  
-  
+  margin: 20px;
+  border-radius: 100%;
+  font-family: "Gill Sans", sans-serif;
+  font-weight: bold;
+  background-color: red;
+  outline-width: 100px;
 }
-
