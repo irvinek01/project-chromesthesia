@@ -1,23 +1,38 @@
 import { useAuth } from "../../util/auth";
 import Nav from "./Nav";
 
-import { Navbar } from "react-bootstrap";
+import { Button, Navbar } from "react-bootstrap";
 function Navigation() {
   const auth = useAuth();
   return (
     // expand="lg" bg="dark" variant="dark"
     <Navbar className="nav-style" >
-      <Navbar.Brand className href="/">Chromesthesia </Navbar.Brand>
+      <Navbar.Brand className="home-button" href="/">Home </Navbar.Brand>
       {auth.isLoggedIn() ? <UserNavs auth={auth} /> : <GuestNavs />}
     </Navbar>
   );
 }
-
+{/* <Button to="/myprofile" className = "nav-profile">Profile</Button> */}
+<button
+   className="nav-profile"
+    type="button"
+    onClick={(e) => {
+      e.preventDefault();
+      window.location.href='/myprofile';
+      }}
+> Profile</button>
 // Renders navigation controls intended for authenticated users
 function UserNavs({ auth }) {
   return (
     <>
-      <Nav to="/myprofile">Profile</Nav>
+      <button
+   className="nav-profile"
+    type="button"
+    onClick={(e) => {
+      e.preventDefault();
+      window.location.href='/myprofile';
+      }}
+> Profile</button>
       <button
         variant="contained"
         style={{ float: "right" }}
