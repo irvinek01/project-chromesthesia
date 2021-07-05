@@ -18,12 +18,7 @@ const defaultVideo = hashVideoRx.test(hash)
 
 function IframesPage({ songsObj, defaultVal }) {
   let listSongsByArtist = [];
-  let currentSongVideo,
-    currentSongArtist,
-    currentSongTitle,
-    currentSongAlbum,
-    currentSongAlbumCover;
-  let nextSongArtist, nextSongTitle;
+
   var i;
 
   for (i = 0; i < songsObj.length; i++) {
@@ -41,7 +36,6 @@ function IframesPage({ songsObj, defaultVal }) {
     // currentSongTitle = songsObj[i - i].title;
     // currentSongAlbum = songsObj[i - i].album;
     // currentSongAlbumCover = songsObj[i - i].cover;
-
     // // Next Song Data
     // nextSongArtist = songsObj[i - i + 1].artist;
     // nextSongTitle = songsObj[i - i + 1].title;
