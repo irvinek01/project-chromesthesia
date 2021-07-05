@@ -16,7 +16,7 @@ const defaultVideo = hashVideoRx.test(hash)
   ? parseInt(hash.replace(hashVideoRx, "$1"), 10)
   : 0;
 
-function IframesPage({ songsObj, defaultVal }) {
+function IframesPage({ songsObj, bgcolor, defaultVal }) {
   let listSongsByArtist = [];
 
   var i;
@@ -85,7 +85,7 @@ function IframesPage({ songsObj, defaultVal }) {
                     onEnd={handleOnEnd}
                   />
                 </div>
-                <Card.Body>
+                <Card.Body style={{ backgroundColor: bgcolor }}>
                   <Card.Title>
                     {video.songTitle} by {video.songArtist}
                   </Card.Title>
