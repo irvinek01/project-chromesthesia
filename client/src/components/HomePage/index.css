@@ -91,3 +91,23 @@ h1 {
   background-color:aqua;
   outline-width: 100px;
 }
+
+.git-profile{
+  border: none;
+  color:greenyellow;
+  padding: 6px;
+  text-align:right;
+  
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+  margin: 20px;
+  margin-top: 7px;
+  margin-left: 750px;
+  
+  border-radius: 10%;
+  font-family: "Gill Sans", sans-serif;
+  font-weight: bold;
+  background-color:deeppink;
+  outline-width: 100px;
+}
