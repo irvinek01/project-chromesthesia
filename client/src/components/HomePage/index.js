@@ -16,6 +16,7 @@ function HomePage() {
     filteredColor: "",
     songList: [],
     default: "",
+    chromesthesia: "",
   });
   const [showResults, setShowResults] = React.useState(false);
 
@@ -34,7 +35,8 @@ function HomePage() {
     const colorData = color.colorList.filter(
       (colorData) => colorData.color === clickedColor
     );
-    // console.log(colorData[0].songList);
+    // console.log(colorData[0]);
+    // console.log(colorData[0].hexaDecValue);
     const songs = colorData[0].songList.map((song) => {
       const songData = {
         artist: song.artist,
@@ -50,6 +52,7 @@ function HomePage() {
       filteredColor: colorData[0].color,
       songList: songs,
       default: 0,
+      chromesthesia: colorData[0].hexaDecValue,
     });
   }
 
@@ -63,7 +66,13 @@ function HomePage() {
 </svg></h1>
           
           <Buttons colorsData={color.colorList} handleClick={handleClick} />
-          {showResults ? <Iframe songsObj={color.songList} defaultVal={color.default} /> : null}
+          {showResults ? (
+            <Iframe
+              bgcolor={color.chromesthesia}
+              songsObj={color.songList}
+              defaultVal={color.default}
+            />
+          ) : null}
         </Container>
       </div>
     </>

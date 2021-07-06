@@ -16,14 +16,9 @@ const defaultVideo = hashVideoRx.test(hash)
   ? parseInt(hash.replace(hashVideoRx, "$1"), 10)
   : 0;
 
-function IframesPage({ songsObj, defaultVal }) {
+function IframesPage({ songsObj, bgcolor, defaultVal }) {
   let listSongsByArtist = [];
-  let currentSongVideo,
-    currentSongArtist,
-    currentSongTitle,
-    currentSongAlbum,
-    currentSongAlbumCover;
-  let nextSongArtist, nextSongTitle;
+
   var i;
 
   for (i = 0; i < songsObj.length; i++) {
@@ -41,7 +36,6 @@ function IframesPage({ songsObj, defaultVal }) {
     // currentSongTitle = songsObj[i - i].title;
     // currentSongAlbum = songsObj[i - i].album;
     // currentSongAlbumCover = songsObj[i - i].cover;
-
     // // Next Song Data
     // nextSongArtist = songsObj[i - i + 1].artist;
     // nextSongTitle = songsObj[i - i + 1].title;
@@ -91,7 +85,7 @@ function IframesPage({ songsObj, defaultVal }) {
                     onEnd={handleOnEnd}
                   />
                 </div>
-                <Card.Body>
+                <Card.Body style={{ backgroundColor: bgcolor }}>
                   <Card.Title>
                     {video.songTitle} by {video.songArtist}
                   </Card.Title>
