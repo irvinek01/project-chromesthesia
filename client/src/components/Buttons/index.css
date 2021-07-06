@@ -9,6 +9,7 @@
     margin: 0px;
     border-radius: 100%;
     font-family: "Gill Sans", sans-serif;
-    font-weight: bold
+    font-weight: bold;
+    outline-color: black;
   }
   
