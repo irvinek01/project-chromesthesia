@@ -56,19 +56,36 @@ function UserNavs({ auth }) {
   );
 }
 
+<button
+className="nav-profile"
+ type="button"
+ onClick={(e) => {
+   e.preventDefault();
+   window.location.href='/login';
+   }}
+> Login</button>
 // Renders navigation controls intended for user's that aren't logged in.
 function GuestNavs() {
   return (
     <div>
-      <Nav
-        className="justify-content-end"
-        style={{ width: "100%" }}
-        to="/login"
-      >
-        Login
-      </Nav>
-      <br></br>
-      <Nav to="/signup">Sign Up</Nav>
+    <button
+className="nav-buttons"
+ type="button"
+ onClick={(e) => {
+   e.preventDefault();
+   window.location.href='/login';
+   }}
+> Login</button>
+      
+      <button
+className="nav-profile"
+ type="button"
+ onClick={(e) => {
+   e.preventDefault();
+   window.location.href='/signup';
+   }}
+> Sign Up</button>
+      
     </div>
   );
 }
