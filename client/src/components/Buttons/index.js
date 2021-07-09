@@ -7,11 +7,9 @@ function Buttons({ colorsData, handleClick }) {
         return (
           <Card.Title className="mx-auto"  key={res._id}>
             <button
-              variant={res.color}
               className="float-right md-auto btn-styling"
-        
               onClick={handleClick}
-              style={{ backgroundColor: res.hexaDecValue }} 
+              style={{ backgroundColor:res.hexaDecValue }} 
               value={res.color}
             >
               {res.keyNote}
