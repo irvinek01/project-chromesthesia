@@ -1,3 +1,4 @@
+import "./index.css";
 import { useState } from "react";
 import { useAuth } from "../../util/auth";
 import useLoginRedirect from "../../util/useLoginRedirect";

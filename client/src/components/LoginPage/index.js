@@ -1,3 +1,4 @@
+import "./index.css";
 import { useState } from "react";
 import { useAuth } from "../../util/auth";
 import useLoginRedirect from "../../util/useLoginRedirect";
@@ -27,8 +28,9 @@ function LoginPage() {
     : auth.error || "Please complete the form and click submit.";
 
   return (
-    <Container>
-      <div className="Login">
+    <Container className="Login">
+      
+      <div>
         <h1>Log-In</h1>
         <Form onSubmit={handleSubmit}>
           <Form.Group size="lg" controlId="email">
@@ -58,6 +60,9 @@ function LoginPage() {
     </Container>
   );
 }
+
+ 
+
 
 export default LoginPage;
 
