@@ -22,6 +22,7 @@ function Navigation() {
     </Navbar>
   );
 }
+
 {/* <Button to="/myprofile" className = "nav-profile">Profile</Button> */}
 <button
    className="nav-profile"
@@ -52,6 +53,7 @@ function UserNavs({ auth }) {
       >
         Logout
       </button>
+      
     </>
   );
 }
