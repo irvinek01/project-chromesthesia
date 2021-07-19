@@ -9,7 +9,7 @@ import {
   CardGroup,
 } from "react-bootstrap";
 import YouTube from "@u-wave/react-youtube";
-
+import "./index.css";
 const hashVideoRx = /^#!\/video\/(\d)$/;
 const hash = typeof window.location !== "undefined" ? window.location.hash : ""; // eslint-disable-line no-undef
 const defaultVideo = hashVideoRx.test(hash)
@@ -77,15 +77,15 @@ function IframesPage({ songsObj, bgcolor, defaultVal }) {
                   /> */}
                   <YouTube
                     video={video.songVidId}
-                    height="390"
-                    width="640"
+                    width="853"
+                    height="480"
                     autoplay
                     allowFullscreen
-                    // controls={false}
+                    
                     onEnd={handleOnEnd}
                   />
                 </div>
-                <Card.Body style={{ backgroundColor: bgcolor }}>
+                <Card.Body className="card-style" style={{ backgroundColor: bgcolor }}>
                   <Card.Title>
                     {video.songTitle} by {video.songArtist}
                   </Card.Title>
@@ -108,8 +108,8 @@ function IframesPage({ songsObj, bgcolor, defaultVal }) {
           </Container>
         </Col>
         <Col xs={6} md={4}>
-          <ListGroup>
-            <ListGroup.Item>
+          <ListGroup className="q">
+            <ListGroup.Item style={{ backgroundColor: bgcolor }}>
               <b>Q'd Songs </b>
             </ListGroup.Item>
             {listSongsByArtist.map((choice, index) => (
