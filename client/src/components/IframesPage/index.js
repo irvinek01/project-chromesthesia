@@ -77,8 +77,8 @@ function IframesPage({ songsObj, bgcolor, defaultVal }) {
                   /> */}
                   <YouTube
                     video={video.songVidId}
-                    height="390"
-                    width="640"
+                    width="853"
+                    height="480"
                     autoplay
                     allowFullscreen
                     // controls={false}
