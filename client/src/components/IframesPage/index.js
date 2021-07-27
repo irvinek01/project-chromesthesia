@@ -7,6 +7,7 @@ import {
   ListGroup,
   Card,
   CardGroup,
+  CardColumns,
 } from "react-bootstrap";
 import YouTube from "@u-wave/react-youtube";
 import "./index.css";
@@ -59,56 +60,48 @@ function IframesPage({ songsObj, bgcolor, defaultVal }) {
 
   return (
     <Container>
-      <br />
-      <Row>
-        <Col xs={12} md={8}>
-          <Container>
-            <CardGroup>
-              <Card>
-                <div>
-                  {/* <iframe
-                    src={currentSongVideo}
-                    height="390"
-                    width="640"
-                    frameBorder="0"
-                    allow="autoplay; encrypted-media"
-                    allowFullScreen
-                    title="video"
-                  /> */}
-                  <YouTube
-                    video={video.songVidId}
-                    width="853"
-                    height="480"
-                    autoplay
-                    allowFullscreen
-                    
-                    onEnd={handleOnEnd}
+
+      <Row className="main-content">
+        <Col className="spacing-content">
+          <Container fluid>
+
+            <Card>
+              
+              <YouTube
+                video={video.songVidId}
+                width="853"
+                height="480"
+                autoplay
+                allowFullscreen
+                className="youtube"
+                onEnd={handleOnEnd}
+
+              />
+
+              <Card.Body className="card-style" style={{ backgroundColor: bgcolor }}>
+                <Card.Title className="text-card">
+                  {video.songTitle} by {video.songArtist}
+                </Card.Title>
+                <Card.Text>
+                  <img
+                    src={video.songAlbumCover}
+                    alt="Album Cover"
+                    height="175px"
+                    width="175px"
+
                   />
-                </div>
-                <Card.Body className="card-style" style={{ backgroundColor: bgcolor }}>
-                  <Card.Title>
-                    {video.songTitle} by {video.songArtist}
-                  </Card.Title>
-                  <Card.Text>
-                    <img
-                      src={video.songAlbumCover}
-                      alt="Album Cover"
-                      height="175px"
-                      width="175px"
-                      
-                    />
-                  </Card.Text>
-                  <Card.Text>
-                    <b>Album:</b> {video.songAlbumTitle}
-                    <br />
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </CardGroup>
+                </Card.Text>
+                <Card.Text className="text-card">
+                  <b>Album:</b> {video.songAlbumTitle}
+                  <br />
+                </Card.Text>
+              </Card.Body>
+            </Card>
+
           </Container>
         </Col>
-        <Col xs={6} md={4}>
-          <ListGroup className="q">
+        <Col >
+          <Card className="q">
             <ListGroup.Item style={{ backgroundColor: bgcolor }}>
               <b>Q'd Songs </b>
             </ListGroup.Item>
@@ -122,7 +115,7 @@ function IframesPage({ songsObj, bgcolor, defaultVal }) {
                 </a>
               </ListGroup.Item>
             ))}
-          </ListGroup>
+          </Card>
         </Col>
       </Row>
     </Container>
